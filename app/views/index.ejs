@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Cars</title>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Updated at</th>
+        </tr>
+        <% data.forEach(entry=> {%>
+        </thead>
+        <tbody>
+        <tr>
+            <td><%=entry.id%></td>
+            <td><%=entry.make%></td>
+            <td><%=entry.model%></td>
+            <td><%=entry.createdAt%></td>
+            <td><%=entry.updatedAt%></td>
+            <td>
+                <button type="button" class="btn btn-primary" onclick=handleActionEdit(<%= entry.id%>)>Edit</button>
+                <button type="button" class="btn btn-danger" onclick=handleDelete(<%= entry.id %>)>Delete</button>
+            </td>
+        </tr>
+        <%})%>
+        </tbody>
+    </table>
+    <div class="container add-menu">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Make</label>
+            <input class="form-control" id="inputName" placeholder="Menu Name">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Model</label>
+            <input class="form-control" id="inputDesc" placeholder="Menu Name">
+        </div>
+        <button id="buttonInsert" type="submit" class="btn btn-primary" onclick=handleInsertMenu()>Insert</button>
+        <button id="buttonEdit" type="button" class="btn btn-warning" disabled> Submit Edit</button>
+    </div>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>
